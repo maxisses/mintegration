@@ -9,9 +9,9 @@
 
 </head>
 <body>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg align-items-end navbar-custom">
                 <a class="navbar-brand" href="/">
-                  <img src="/drvicon.png" width="35" alt="">
+                  <img src="Bilder Mintegration/LOGO Mintegration.png" width="160" alt="">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
@@ -22,39 +22,47 @@
                 
                   <ul class="navbar-nav navbar-right">
                         <li class="nav-item">
-                          <a class="nav-link" href="/about">Worum geht's?</a>
+                          <a class="<%= pageTitle == 'welcome' ? 'nav-link active' : 'nav-link' %>" href="/welcome">Willkommen</a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link" href="/objective">Was wollen wir erreichen?</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/schedule">Ablauf</a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link" href="/challenges">Challenges</a>
-                      </li>
-                        <li class="nav-item dropdown invisible">
+                          <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              Challenges
+                              Das Projekt
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                              <a class="dropdown-item" href="/challenges">Übersicht</a>
-                              <div class="dropdown-divider"></div>
-                              <a class="dropdown-item" href="/challenges/newchallenge">Neue Challenge anlegen</a>
+                              
+                              <a class="dropdown-item" href="/FEHLT">Allgemeines</a>
+                              <!-- <div class="dropdown-divider"></div> -->
+                              <a class="dropdown-item" href="/FEHLT">Projekt in Zahlen</a>
+                              <a class="dropdown-item" href="/FEHLT">Das Team</a>   
+                                          
                             </div>
                           </li>
-                          <li class="nav-item dropdown invisible">
+                        </li>
+                        <li class="nav-item">
+                          <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              some FunStuff
+                              Für Lehrkräfte und Schulen
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                              <a class="dropdown-item" href="/got">GoT CLF</a>
-                              <div class="dropdown-divider"></div>
-                              <a class="dropdown-item" href="/gotgpt2">GoT GPT-2</a>
+                              
+                              <a class="dropdown-item" href="/FEHLT">Informationen</a>
+                              <!-- <div class="dropdown-divider"></div> -->
+                              <a class="dropdown-item" href="/FEHLT">ZASt Halberstadt</a>              
                             </div>
                           </li>
+                        </li>
+                        <li class="nav-item">
+                          <a class="<%= pageTitle == 'welcome' ? 'nav-link active' : 'nav-link' %>" href="/challenges">Engagieren</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="/challenges">Infomaterial</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="/challenges">Partner</a>
+                        </li>
                   </ul>
-                  <ul class="navbar-nav ml-auto invisible">
+                  <ul class="navbar-nav ml-auto">
                     <% if(!currentUser){ %>
                         <li class="nav-item">
                           <a class="nav-link" href="/login">Einloggen</a>
@@ -74,6 +82,7 @@
                  </ul>
                 </div>
                 </div>
+
               </nav>
               <div class="container">
                 <% if(error && error.length >0){ %>

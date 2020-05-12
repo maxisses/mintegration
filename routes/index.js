@@ -17,14 +17,14 @@ router.get("/", function(req, res){
     res.render("landing");
 });
 
-router.get("/about", function(req, res){
+router.get("/welcome", function(req, res){
     console.log(req.user);
     // Get all challenges from DB
     Challenge.find({}, function(err, allchallenges){
        if(err){
            console.log(err);
        } else {
-          res.render("about",{Challenges:allchallenges});
+          res.render("welcome",{pageTitle: "welcome"});
        }
     });
 });

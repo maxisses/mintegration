@@ -6,7 +6,7 @@ body {
     z-index: 0;
     position: relative;
     text-align: center;
-    padding-top: 80vh;
+    padding-top: 85vh;
   }
 
 #landing-header h1 {
@@ -14,24 +14,24 @@ body {
   }
 
 .landing-btn {
-  color: rgb(211, 198, 198);
+  color: rgb(29, 34, 32);
   text-transform: uppercase;
   text-decoration: none;
   font-weight: bold;
   font-size: 1.5rem;
-  background: rgb(8, 49, 99);
+  background: rgb(132, 191, 64);
   padding: 13px;
   border-radius: 5px;
   display: inline-block;
   border: none;
   transition: all 0.4s ease 0s;
-  width: 10rem;
+  width: 12rem;
   opacity: 0.5;
   }
 
 .landing-btn:hover {
-  color: rgb(8, 49, 99);
-  background: rgb(211, 219, 43);
+  background: rgb(132, 191, 64);
+  color: rgb(216, 38, 125);
   letter-spacing: 15px;
   -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
   -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
@@ -68,18 +68,18 @@ body {
   }
 
 .slideshow li:nth-child(1) { 
-    background-image: url("../Logo\ 1.png")
+    background-image: url("../Bilder Mintegration/LOGO Mintegration.png");
 }
 .slideshow li:nth-child(2) { 
-    background-image: url("../kichal.png");
+    background-image: url("../Bilder Mintegration/Lehrerfortbildung.jpg");
     animation-delay: 10s; 
   }
 .slideshow li:nth-child(3) { 
-    background-image: url("../innolab.jpg");
+    background-image: url("../Bilder Mintegration/LOGO Mintegration.png");
     animation-delay: 20s; 
   }
 .slideshow li:nth-child(4) { 
-    background-image: url("../kic2.jpg");
+    background-image: url("../Bilder Mintegration/Lehrerfortbildung.jpg");
     animation-delay: 30s; 
   }
 
