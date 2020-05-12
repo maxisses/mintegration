@@ -19,19 +19,26 @@ router.get("/", function(req, res){
 
 router.get("/welcome", function(req, res){
     console.log(req.user);
-    // Get all challenges from DB
           res.render("welcome",{pageTitle: "welcome"});
 });
 
 router.get("/projectoverview", function(req, res){
     console.log(req.user);
-    // Get all challenges from DB
           res.render("projectoverview",{pageTitle: "project"});
+});
+
+router.get("/projectfigures", function(req, res){
+    console.log(req.user);
+          res.render("projectfigures",{pageTitle: "project"});
+});
+
+router.get("/team", function(req, res){
+    console.log(req.user);
+          res.render("team",{pageTitle: "project"});
 });
 
 router.get("/getinvolved", function(req, res){
     console.log(req.user);
-    // Get all challenges from DB
           res.render("getinvolved",{pageTitle: "getinvolved"});
 });
 

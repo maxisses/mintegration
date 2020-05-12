@@ -45,22 +45,57 @@ body {
   }
 
   .iframe {
-    width: 100%;
-    height: 81vh;
+    margin-top: 10vh;
+    margin-left: 4vh;
   }
 
-  .iframe2 {
-    width: 90%;
-    height: 60vh;
+  .hl-after::after {
+    content: "";
+    position: relative;
+    display: block;
+    width: 80px;
+    height: 2px;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    background: rgb(169, 209, 142);
+    left: 50%;
+    margin-left: -40px;
+    bottom: 0;
   }
 
-  #jumbopadded {
-    padding-left: 3vw;
-    padding-right: 3vw;
-    padding-top: 2vh;
-    padding-bottom: 2vh;
-}
+  .jobtitle {
+    color: #b3b3b3;
+  }
+  
+  .special-card {
+      background-color: rgba(245, 245, 245, 0.1);
+    }
+    
 
+  .carousel-indicators {
+      bottom: -50px;
+  }    
+  .carousel-indicators li {
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      margin: 10px;
+      text-indent: 0;
+      border: none;
+      border-radius: 50%;
+      background-color: rgb(169, 209, 142);
+      box-shadow: outset 1px 1px 1px 1px rgb(216, 38, 125);    
+  }
+  .carousel-indicators .active {
+      width: 24px;
+      height: 24px;
+      margin: 10px;
+      background-color: rgb(216, 38, 125);
+  }
+
+  .navbar-custom .navbar-toggler-icon{
+    padding: 35px !important;
+  }
 
 /* Modify the backgorund color */ 
 .navbar-custom { 
@@ -212,10 +247,11 @@ body {
 }
 
 #welcomehl {
+  padding:0;
   margin-bottom: 3rem;
 }
 
-.btn-primary {
+.btn-primary-edit {
   background-color: rgb(169, 209, 142);
   border: 0;
   color: rgb(43, 44, 43) !important;
@@ -224,6 +260,10 @@ body {
   font-style: normal;
 }
 
-.btn-primary:hover {
+.btn-primary-edit:hover {
   background-color: rgb(216, 38, 125);
+}
+
+.overviewpage h4 {
+  padding-top: 1rem;
 }

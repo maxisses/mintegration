@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DRV KI Challenge</title>
+  <title>MINTegration</title>
   
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="/stylesheets/main.css"> 
@@ -21,7 +21,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                   
                 
-                  <ul class="navbar-nav navbar-right">
+                  <ul class="navbar-nav navbar-right d-flex align-items-end">
                         <li class="nav-item">
                           <a class="<%= pageTitle == 'welcome' ? 'nav-link active' : 'nav-link' %>" href="/welcome">Willkommen</a>
                         </li>
@@ -35,8 +35,8 @@
                               
                               <a class="dropdown-item" href="/projectoverview">Allgemeines</a>
                               <!-- <div class="dropdown-divider"></div> -->
-                              <a class="dropdown-item" href="/FEHLT">Projekt in Zahlen</a>
-                              <a class="dropdown-item" href="/FEHLT">Das Team</a>   
+                              <a class="dropdown-item" href="/projectfigures">Projekt in Zahlen</a>
+                              <a class="dropdown-item" href="/team">Das Team</a>   
                                           
                             </div>
                           </li>
@@ -55,17 +55,17 @@
                           </li>
                         </li>
                         <li class="nav-item">
-                          <a class="<%= pageTitle == 'getinvolved' ? 'nav-link active' : 'nav-link' %>" href="/getinvolved">Engagieren</a>
+                          <a class="<%= pageTitle == 'getinvolved' ? 'nav-link active' : 'nav-link' %>" href="/FEHLT">Engagieren</a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link" href="/challenges">Infomaterial</a>
+                          <a class="nav-link" href="/FEHLT">Infomaterial</a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link" href="/challenges">Partner</a>
+                          <a class="nav-link" href="/FEHLT">Partner</a>
                         </li>
                   </ul>
-                  <ul class="navbar-nav ml-auto">
-                    <% if(!currentUser){ %>
+                  <ul class="navbar-nav ml-auto d-flex align-items-end">
+                    <!-- <% if(!currentUser){ %>
                         <li class="nav-item invisible">
                           <a class="nav-link" href="/login">Einloggen</a>
                         </li>
@@ -79,7 +79,7 @@
                         <li class="nav-item invisible">
                           <a class="nav-link" href="#">Eingeloggt als: <%= currentUser.username %> </a>
                         </li>
-                      <% } %>
+                      <% } %> -->
                       <li class="nav-item">
                     
                         <a class="nav-link" href="/login"><i class="far fa-address-card"></i> Kontakt</a>
