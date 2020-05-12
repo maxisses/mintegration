@@ -1,0 +1,25 @@
+<% include partials/header.ejs %>
+
+    <div class="container">
+        <header class="jumbotron">
+            <div class="container">
+                <h1>Das sind die Challenges für die KI Challenge.</h1>
+                </p>
+            </div>
+        </header>
+        
+        <div class="row text-center" style="display: flex; flex-wrap: wrap">
+            <% Challenges.forEach(function(challenge) { %>
+                <div class="col-md-3 col-sm-6" style="display:flex; flex-wrap: wrap">
+                    <div class="img-thumbnail">
+                        <img class="img-fluid" alt="Responsive image" src ="<%= challenge.image %>">
+                        <div class="caption text-center"><h4><%= challenge.name %> </strong> </h4></div>
+                        <div class="caption text-center"><em>Erstellt von <%= challenge.author.username %> </em></div>
+                        <p>
+                                <a href="/Challenges/<%= challenge._id %>" class="btn btn-primary">Infos</a>
+                            </p>
+                    </div>
+                </div>
+            <% }); %>
+        </div>
+<% include partials/footer.ejs %>

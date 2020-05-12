@@ -1,0 +1,5 @@
+applications:
+- name: drv-ki-challenge-webapp
+  host: drv-ki-challenge
+  memory: 128M
+  buildpack: sdk-for-nodejs

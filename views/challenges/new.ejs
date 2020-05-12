@@ -1,0 +1,33 @@
+<% include ../partials/header.ejs %>
+<div class="jumbotron">
+    <div class="container">
+        <div class="row">
+            <h1 style="text-align: center">Lege eine neue Challenge <br> für den Hack an</h1>
+            <div style="width: 30%; margin: 25px auto;">
+                <form action="/challenges/newchallenge" method="POST" encType="multipart/form-data">
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="name" placeholder="Gib der Challenge einen coolen Titel">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="image" placeholder="Pack ein cooles Bild rein (per URL)">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="userstory" placeholder="Userstory">
+                    </div>
+                    <div class="form-group">
+                        <label for="empathycard">Empathiekarte</label>
+                        <input class="form-control-file" type="file" accept="image/*" name="empathycard" id="empathycard" placeholder="Empathiekarte">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="description" placeholder="Beschreibung (was gilt es zu tun)">
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-lg btn-primary btn-block">Submit!</button>
+                    </div>
+                </form>
+                <a href="/challenges">Zurück</a>
+            </div>
+        </div>
+    </div>
+</div>
+<% include ../partials/footer.ejs %>

@@ -1,0 +1,33 @@
+<% include ../partials/header %>
+<div class="jumbotron">    
+    <div class="container">
+        <div class="row">
+            <h2 style="text-align: center">Challenge <b><%= challenge.name %></b> anpassen</h2>
+            <div style="width: 30%; margin: 25px auto;">
+                <form action="/challenges/<%= challenge._id %>/?_method=PUT" method="POST"> 
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="challenge[name]" value="<%= challenge.name %>" placeholder="Titel">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="challenge[image]" value="<%= challenge.image %>" placeholder="Bildurl">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="challenge[userstory]" value="<%= challenge.userstory %>" placeholder="Userstory">
+                    </div>
+                    <!-- <div class="form-group">
+                        <label for="empathycard">Empathiekarte</label>
+                        <input class="form-control-file" type="file" accept="image/*" name="challenge[empathycard]" value="<%= challenge.empathycard %>" placeholder="Bildurl">
+                    </div> -->
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="challenge[description]" value="<%= challenge.description %>" placeholder="Beschreibung">
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-lg btn-primary btn-block">Submit!</button>
+                    </div>
+                </form>
+                <a href="/challenges">zurück</a>
+            </div>
+        </div>
+    </div>
+</div>
+<% include ../partials/footer %>

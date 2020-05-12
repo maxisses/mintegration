@@ -1,0 +1,161 @@
+<% include partials/header %>
+
+<div class="container">
+        <div class="row">
+                <div class="col-md-3">
+                        <div class="list-group navpane">                                
+                                <a href="#whatabout" class="list-group-item list-group-item-action text-dark">Um wen geht es?</a>
+                                <a href="#challengecontent" class="list-group-item list-group-item-action text-dark">Was ist die Challenge?</a>
+                                <a href="#datatech" class="list-group-item list-group-item-action text-dark">Daten & Technologie</a>
+                                <a href="#teams" class="list-group-item list-group-item-action text-dark">Die Teams</a>
+                        </div>
+                </div>
+                <div class="col-md-9">
+                        <div class="img-thumbnail">
+                                <img class="img-responsive rounded mx-auto d-block" src="<%= challenge.image %>">
+                        <div class="caption-full" id="whatabout">
+                                <h4><a href=""><%=challenge.name %></a></h4>
+                                <div class="card">
+                                        <div class="card-body">
+                                                <h5 class="card-title">Um wen geht es?</h5>
+                                                <!-- <h6 class="card-subtitle mb-2 text-muted">Userstory</h6> -->
+                                                <p class="float-left"><%= challenge.userstory %></p>
+                                                <img class="img-responsive rounded mx-auto d-block middle" src="<%= challenge.empathycard %>">
+                                        </div>
+                                </div>
+                        </div>
+                        <div class="card">
+                                <div class="card-body" id="challengecontent">
+                                        <h5 class="card-title">Was ist die Challenge?</h5>
+                                        <!-- <h6 class="card-subtitle mb-2 text-muted">Beschreibung</h6> -->
+                                        <p class="float-left"><%= challenge.description %></p>
+                                </div>
+                        </div>
+                        <div class="card">
+                                <div class="card-body" id="datatech">
+                                        <h5 class="card-title">Daten & Technologie</h5>
+                                        <div class="card-body">
+                                                <h5 class="card-title">Daten</h5>
+                                                <p class="float-left">
+                                                        <%= challenge.datastuf %>
+                                                </p>
+                                                <div class="col-md-5">
+                                                <% if(currentUser && challenge.author.id.equals(currentUser._id)){ %>
+                                                <form action="/challenges/<%= challenge._id %>/?_method=PUT" method="POST">
+                                                        <div class="form-group">
+                                                            <input class="form-control" type="text" name="challenge[datastuf]" value="<%= challenge.datastuf %>" placeholder="Links & Tipps welche Daten benötigt werden">
+                                                        </div>
+                                                        <div class="form-group">
+                                                                <button class="btn btn-sm btn-primary btn-block">Anpassen</button>
+                                                        </div>
+                                                    </form>
+                                                <% }; %>
+                                                </div>
+
+                                        </div>
+                                        <div class="card-body">
+                                                <h5 class="card-title">Technology Starters</h5>
+                                                <p class="float-left">
+                                                        <%= challenge.techstuf %>
+                                                </p>
+                                                <div class="col-md-5">
+                                                        <% if(currentUser && challenge.author.id.equals(currentUser._id)){ %>
+                                                        <form action="/challenges/<%= challenge._id %>/?_method=PUT" method="POST">
+                                                                <div class="form-group">
+                                                                <input class="form-control" type="text" name="challenge[techstuf]" value="<%= challenge.techstuf %>" placeholder="Links & Tipps zu Technologieanregungen">
+                                                                </div>
+                                                                <div class="form-group">
+                                                                        <button class="btn btn-sm btn-primary btn-block">Anpassen</button>
+                                                                </div>
+                                                        </form>
+                                                        <% }; %>
+                                                </div>
+                                        </div>
+                                </div>
+                        </div>
+                        <div class="card">
+                                <div class="card-body" id="teams">
+                                        <h5 class="card-title">Die Teams</h5>
+                                        <!-- <h6 class="card-subtitle mb-2 text-muted">Beschreibung</h6> -->
+                                        <% console.log(challenge.team) %>
+                                        <% if(challenge.team != null){ %>
+                                                <div class="row text-center" style="display: flex; flex-wrap: wrap">
+                                                <% challenge.team.forEach(function(team){ %>
+                                                        <div class="col-md-3 col-sm-6" style="display:flex; flex-wrap: wrap">
+                                                                <div class="img-thumbnail">
+                                                                    <img class="img-fluid" alt="Responsive image" src ="<%= challenge.image %>">
+                                                                    <div class="caption text-center"><h4><%= team.name %> </strong> </h4></div>
+                                                                    <div><h5>Mitglieder:</h5><%= team.members %></div>
+                                                                    <!-- <div class="caption text-center"><em>Erstellt von <%= team.author.username %> </em></div> -->
+                                                                </div>
+                                                        </div>
+                                                        <% }) %>
+                                                </div>
+                                        <% }else{%>
+                                                <p>Sobald wir wissen, welche Teams, welche Challenge bearbeiten tauchen sie hier auf.</p>
+                                        <% }%>
+                                </div>
+                                <div class="col-md-5">
+                                        <% if(currentUser && challenge.author.id.equals(currentUser._id)){ %>
+                                                <form action="/challenges/<%= challenge._id %>/teams" method="POST" encType="multipart/form-data"> 
+                                                        <div class="form-group">
+                                                                <input class="form-control" type="text" name="name" value="<%= challenge.team.name %>" placeholder="Teamname">
+                                                        </div>
+                                                        <div class="form-group">
+                                                                <input class="form-control" type="text" name="members" placeholder="Teammember">
+                                                        </div>
+                                                      <!--  <div class="form-group">
+                                                                <label for="teamimage">Bild des Teams:</label>
+                                                                <input class="form-control-file" type="file" accept="image/*" name="teamimage" id="teamimage" placeholder="Teambild">
+                                                        </div> -->
+                                                        <div class="form-group">
+                                                                <button class="btn btn-sm btn-primary btn-block">Hinzufügen</button>
+                                                        </div>
+                                                </form>
+                                        <% }; %>
+                                </div>
+
+                        </div>
+                        <p>
+                                <em>
+                                        Erstellt von <%= challenge.author.username %>
+                                </em>
+                        </p>
+
+                                <% if(currentUser && challenge.author.id.equals(currentUser._id)){ %>
+                                        <a class= "btn btn-warning" href="/challenges/<%= challenge._id %>/edit">Challenge anpassen</a>
+                                        <form action="/challenges/<%= challenge._id %>?_method=delete" method="POST">
+                                                <button class="btn btn-danger delete-form">Challenge löschen</button>     
+                                        </form>
+                                <% }; %>
+                        </div>
+                        <div class="card card-body bg-light invisible">
+                                <div class="text-right">
+                                        <a class="btn btn-success" href="/challenges/<%= challenge._id %>/comments/new">Kommentieren</a>
+                                </div>
+                                <hr>
+                                        <% challenge.comment.forEach(function(comment){ %>
+                                        <div class="row">
+                                                <div class="col-md-12">
+                                                        <strong><%= comment.author.username %></strong>
+                                                        <span class="float-right"><%= comment.time %></span>
+                                                        <p>
+                                                                <%= comment.text %>
+                                                        </p>
+                                                        <% if(currentUser && comment.author.id.equals(currentUser._id)){ %>
+                                                                <a class="btn btn-xs btn-warning" href="/challenges/<%= challenge._id %>/comments/<%= comment._id %>/edit">
+                                                                        Edit
+                                                                </a>
+                                                                <form action="/challenges/<%= challenge._id %>/comments/<%= comment._id %>?_method=delete" method="POST">
+                                                                        <input type="submit" class="btn btn-xs btn-danger delete-form" value="Delete">
+                                                                </form>
+                                                        <% }%>
+                                                </div>
+                                        </div>
+                                        <% }) %>
+                        </div>
+                </div>
+        </div>
+</div>
+</div>
+<% include partials/footer %>
