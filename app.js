@@ -16,7 +16,7 @@ let commentRoutes = require("./routes/comments"),
     teamRoutes = require("./routes/teams");
 
     //local DB
-if (process.env.MONGOURL) {
+/* if (process.env.MONGOURL) {
     mongoose.connect("mongodb+srv://maxisses:"+process.env.MONGOPW+"@cluster0-tuynq.mongodb.net/test?retryWrites=true&w=majority").then(() => {
         console.log('successfully connected to the local database');
     }).catch(err => {
@@ -30,7 +30,7 @@ if (process.env.MONGOURL) {
         console.log('error connecting to the database');
         process.exit();
     });;
-    }
+    } */
 
 app.use(flash());
 app.use(bodyParser.urlencoded({extended: true}));

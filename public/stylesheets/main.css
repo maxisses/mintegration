@@ -2,6 +2,7 @@ body {
     font-family: 'Arial';
     font-weight: bold;
     font-style: normal;
+    background-color: rgb(241, 245, 237);
   }
 }
 .img-thumbnail {
@@ -86,7 +87,11 @@ body {
 }
 
 .active { 
-  background-color: rgb(255, 241, 9);
+  color: rgb(43, 44, 43) !important;
+  font-family: 'Arial';
+  font-weight: bold;
+  font-style: normal;
+
 }
 
 /*change color of the burger */
@@ -133,4 +138,92 @@ body {
   color: #fff;
   background-color: rgb(216, 38, 125);
   border-color: #fff;
+}
+
+
+#module3 {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+
+#module3 #collapsemod3.collapse:not(.show) {
+  display: block;
+  height: 3.8rem;
+  overflow: hidden;
+}
+
+#module3 #collapsemod3.collapsing {
+  height: 3rem;
+}
+
+#module3 a.collapsed::after {
+  content: '... mehr anzeigen';
+}
+
+#module3 a:not(.collapsed)::after {
+  content: '... weniger anzeigen';
+}
+
+#module2 {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+#module2 #collapsemod2.collapse:not(.show) {
+  display: block;
+  height: 3.8rem;
+  overflow: hidden;
+}
+
+#module2 #collapsemod2.collapsing {
+  height: 3rem;
+}
+
+#module2 a.collapsed::after {
+  content: '... mehr anzeigen';
+}
+
+#module2 a:not(.collapsed)::after {
+  content: '... weniger anzeigen';
+}
+
+#module1 {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+#module1 #collapsemod1.collapse:not(.show) {
+  display: block;
+  height: 3.8rem;
+  overflow: hidden;
+}
+
+#module1 #collapsemod1.collapsing {
+  height: 3rem;
+}
+
+#module1 a.collapsed::after {
+  content: '... mehr anzeigen';
+}
+
+#module1 a:not(.collapsed)::after {
+  content: '... weniger anzeigen';
+}
+
+#welcomehl {
+  margin-bottom: 3rem;
+}
+
+.btn-primary {
+  background-color: rgb(169, 209, 142);
+  border: 0;
+  color: rgb(43, 44, 43) !important;
+  font-family: 'Arial';
+  font-weight: bold;
+  font-style: normal;
+}
+
+.btn-primary:hover {
+  background-color: rgb(216, 38, 125);
 }

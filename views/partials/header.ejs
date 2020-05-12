@@ -6,6 +6,7 @@
   
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="/stylesheets/main.css"> 
+  <script src="https://kit.fontawesome.com/ef23fed41f.js" crossorigin="anonymous"></script>
 
 </head>
 <body>
@@ -26,12 +27,13 @@
                         </li>
                         <li class="nav-item">
                           <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            
+                            <a class="<%= pageTitle == 'project' ? 'nav-link active' : 'nav-link' %> dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                               Das Projekt
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                               
-                              <a class="dropdown-item" href="/FEHLT">Allgemeines</a>
+                              <a class="dropdown-item" href="/projectoverview">Allgemeines</a>
                               <!-- <div class="dropdown-divider"></div> -->
                               <a class="dropdown-item" href="/FEHLT">Projekt in Zahlen</a>
                               <a class="dropdown-item" href="/FEHLT">Das Team</a>   
@@ -53,7 +55,7 @@
                           </li>
                         </li>
                         <li class="nav-item">
-                          <a class="<%= pageTitle == 'welcome' ? 'nav-link active' : 'nav-link' %>" href="/challenges">Engagieren</a>
+                          <a class="<%= pageTitle == 'getinvolved' ? 'nav-link active' : 'nav-link' %>" href="/getinvolved">Engagieren</a>
                         </li>
                         <li class="nav-item">
                           <a class="nav-link" href="/challenges">Infomaterial</a>
@@ -64,20 +66,24 @@
                   </ul>
                   <ul class="navbar-nav ml-auto">
                     <% if(!currentUser){ %>
-                        <li class="nav-item">
+                        <li class="nav-item invisible">
                           <a class="nav-link" href="/login">Einloggen</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item invisible">
                           <a class="nav-link" href="/register">Registrieren</a>
                         </li>
                     <% } else {%>
-                        <li class="nav-item">
+                        <li class="nav-item invisible">
                            <a class="nav-link" href="/logout">Logout </a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item invisible">
                           <a class="nav-link" href="#">Eingeloggt als: <%= currentUser.username %> </a>
                         </li>
                       <% } %>
+                      <li class="nav-item">
+                    
+                        <a class="nav-link" href="/login"><i class="far fa-address-card"></i> Kontakt</a>
+                      </li>
 
                  </ul>
                 </div>

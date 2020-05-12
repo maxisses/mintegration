@@ -20,25 +20,19 @@ router.get("/", function(req, res){
 router.get("/welcome", function(req, res){
     console.log(req.user);
     // Get all challenges from DB
-    Challenge.find({}, function(err, allchallenges){
-       if(err){
-           console.log(err);
-       } else {
           res.render("welcome",{pageTitle: "welcome"});
-       }
-    });
 });
 
-router.get("/objective", function(req, res){
+router.get("/projectoverview", function(req, res){
     console.log(req.user);
     // Get all challenges from DB
-    Challenge.find({}, function(err, allchallenges){
-       if(err){
-           console.log(err);
-       } else {
-          res.render("objective",{Challenges:allchallenges});
-       }
-    });
+          res.render("projectoverview",{pageTitle: "project"});
+});
+
+router.get("/getinvolved", function(req, res){
+    console.log(req.user);
+    // Get all challenges from DB
+          res.render("getinvolved",{pageTitle: "getinvolved"});
 });
 
 router.get("/schedule", function(req, res){
