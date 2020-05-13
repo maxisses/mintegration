@@ -51,7 +51,7 @@ router.get("/partner", function(req, res){
 
 router.get("/contact", function(req, res){
     console.log(req.user);
-          res.render("contactform/index",{pageTitle: "contact"});
+          res.render("contact",{pageTitle: "contact"});
 });
 
 router.get("/impressum", function(req, res){
