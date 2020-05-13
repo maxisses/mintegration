@@ -8,8 +8,12 @@ WORKDIR /app
 
 COPY package.json /app
 RUN npm install --only=prod
-COPY server /app/server
+COPY app.js /app/app.js
 COPY public /app/public
+COPY routes /app/routes
+COPY views /app/views
+COPY models /app/models
+COPY middleware /app/middleware
 
 ENV NODE_ENV production
 ENV PORT 3000
