@@ -1,5 +1,6 @@
+---
 applications:
-  - instances: 1
+- instances: 1
   timeout: 180
   name: maxpubliceduapp
   buildpack: sdk-for-nodejs
@@ -10,7 +11,7 @@ applications:
   host: mintegration
   env:
     OPTIMIZE_MEMORY: true
-  - instances: 1
+- instances: 1
   timeout: 180
   name: staging-maxpubliceduapp
   buildpack: sdk-for-nodejs
