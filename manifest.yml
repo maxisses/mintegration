@@ -1,12 +1,23 @@
 applications:
   - instances: 1
-    timeout: 180
-    name: maxpubliceduapp
-    buildpack: sdk-for-nodejs
-    command: npm start
-    disk_quota: 1G
-    memory: 192MB
-    domain: eu-de.mybluemix.net
-    host: mintegration
-    env:
-      OPTIMIZE_MEMORY: true
+  timeout: 180
+  name: maxpubliceduapp
+  buildpack: sdk-for-nodejs
+  command: npm start
+  disk_quota: 1G
+  memory: 128MB
+  domain: eu-de.mybluemix.net
+  host: mintegration
+  env:
+    OPTIMIZE_MEMORY: true
+  - instances: 1
+  timeout: 180
+  name: staging-maxpubliceduapp
+  buildpack: sdk-for-nodejs
+  command: npm start
+  disk_quota: 1G
+  memory: 128MB
+  domain: eu-de.mybluemix.net
+  host: staging-mintegration
+  env:
+    OPTIMIZE_MEMORY: true
