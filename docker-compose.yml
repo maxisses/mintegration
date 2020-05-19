@@ -1,0 +1,21 @@
+version: "3"
+services:
+  webapp:
+    build: .
+    ports:
+      - '3000:3000'
+    restart: always
+  database:
+    image: 'mongo'
+    container_name: 'my-mongo-container'
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=051213
+      - MONGO_INITDB_DATABASE=submissions
+    ports:
+      - '27017:27017'
+    
+      ## stuff doesnt work for some reasons... workaround is to exec into the mongo container and create the user on the submissions
+      # volumes:
+      # - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+      # - ./mongo-volume:/data/db

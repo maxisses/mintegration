@@ -51,6 +51,10 @@ body {
     color: black;
   }
 
+  .list-group-item .list-group-item-action .active {
+    background-color: rgb(216, 38, 125);
+  }
+
   .iframe {
     margin-top: 10vh;
     margin-left: 4vh;
@@ -133,6 +137,10 @@ body {
 
 }
 
+.top_padded {
+  padding-top: 1vh;
+}
+
 /*change color of the burger */
 .navbar-custom .navbar-toggler-icon {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(216,38,125, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
@@ -180,6 +188,44 @@ body {
   border-color: #fff;
 }
 
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #ccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+
+.list-group-item {
+  color: rgb(43, 44, 43) !important;
+  font-family: 'Arial';
+  font-weight: bold;
+  font-style: normal;
+  Onclick="this.style.background='#003366'";
+}
+
+.list-group-item:hover {
+  color: #fff;
+  background-color: rgb(216, 38, 125);
+  border-color: #fff;
+}
+
+.list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus {
+  z-index:2;
+  color:#fff;
+  background-color:rgb(216, 38, 125);
+  border-color:#fff;
+}
+
+a:hover {
+color: rgb(169, 209, 142);
+} 
 
 #module3 {
   font-size: 1rem;

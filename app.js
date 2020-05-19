@@ -10,27 +10,26 @@ let express     = require("express"),
 
 
 // using express router to split up code, requiring routes
-let commentRoutes = require("./routes/comments"),
-    challengeRoutes = require("./routes/challenges"),
-    indexRoutes = require("./routes/index"),
-    teamRoutes = require("./routes/teams");
+let indexRoutes = require("./routes/index"),
+    halberstadtRoutes = require("./routes/halberstadt");
 
     //local DB
-/* if (process.env.MONGOURL) {
+
+if (process.env.MONGOURL) {
     mongoose.connect("mongodb+srv://maxisses:"+process.env.MONGOPW+"@cluster0-tuynq.mongodb.net/test?retryWrites=true&w=majority").then(() => {
         console.log('successfully connected to the local database');
     }).catch(err => {
-        console.log('error connecting to the database');
-        process.exit();
+        console.log('--- error connecting to the remote database ---');
+        // process.exit()
     });;;
     }else{
-    mongoose.connect("mongodb://localhost:27017/submission").then(() => {
+    mongoose.connect("mongodb://maxisses:051213@my-mongo-container:27017/submissions").then(() => {
         console.log('successfully connected to the local database');
     }).catch(err => {
-        console.log('error connecting to the database');
-        process.exit();
+        console.log('--- error connecting to container database; are you running with docker compose? ---');
+        // process.exit()
     });;
-    } */
+    }
 
 app.use(flash());
 app.use(bodyParser.urlencoded({extended: true}));
@@ -58,7 +57,7 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser()); 
 
 
-//to pass the user to every!!! route just like e.g. {challenge: foundchallenge}
+//to pass the user to every!!! route 
 app.use(function(req, res, next){
     res.locals.currentUser = req.user;
     res.locals.error = req.flash("error");
@@ -66,15 +65,10 @@ app.use(function(req, res, next){
     next();
 })
 
-
 // using express router to split up code
 app.use(indexRoutes);
-    // appends /challenges to all routes in front
-app.use("/challenges", challengeRoutes);
-    // appends ... to all routes in front
-app.use("/challenges/:id/comments", commentRoutes);
-    // appends ... to all routes in front
-app.use("/challenges/:id/teams", teamRoutes);
+
+app.use("/halberstadt", halberstadtRoutes);
 
 
 

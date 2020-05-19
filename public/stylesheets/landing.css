@@ -68,18 +68,18 @@ body {
   }
 
 .slideshow li:nth-child(1) { 
-    background-image: url("../Bilder Mintegration/LOGO Mintegration.png");
+    background-image: url("../images/logo.png");
 }
 .slideshow li:nth-child(2) { 
-    background-image: url("../Bilder Mintegration/Lehrerfortbildung.jpg");
+    background-image: url("../images/Lehrerfortbildung.jpg");
     animation-delay: 10s; 
   }
 .slideshow li:nth-child(3) { 
-    background-image: url("../Bilder Mintegration/LOGO Mintegration.png");
+    background-image: url("../images/logo.png");
     animation-delay: 20s; 
   }
 .slideshow li:nth-child(4) { 
-    background-image: url("../Bilder Mintegration/Lehrerfortbildung.jpg");
+    background-image: url("../images/Lehrerfortbildung.jpg");
     animation-delay: 30s; 
   }
 
