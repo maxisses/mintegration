@@ -3,6 +3,7 @@ var router = express.Router();
 var User = require("../models/user");
 var passport = require("passport");
 var middleware = require("../middleware");
+var nodemailer = require('nodemailer');
 
 // Main Route
 router.get("/", function(req, res){
@@ -10,48 +11,89 @@ router.get("/", function(req, res){
 });
 
 router.get("/welcome", function(req, res){
-    console.log(req.user);
-          res.render("welcome",{pageTitle: "welcome"});
+    res.render("welcome",{pageTitle: "welcome"});
 });
 
 router.get("/projectoverview", function(req, res){
-    console.log(req.user);
-          res.render("projectoverview",{pageTitle: "project"});
+    res.render("projectoverview",{pageTitle: "project"});
 });
 
 router.get("/projectfigures", function(req, res){
-    console.log(req.user);
-          res.render("projectfigures",{pageTitle: "project"});
+    res.render("projectfigures",{pageTitle: "project"});
 });
 
 router.get("/team", function(req, res){
-    console.log(req.user);
-          res.render("team",{pageTitle: "project"});
+    res.render("team",{pageTitle: "project"});
 });
 
 router.get("/information", function(req, res){
-    console.log(req.user);
-          res.render("information",{pageTitle: "forschools"});
+    res.render("information",{pageTitle: "forschools"});
 });
 
 router.get("/getinvolved", function(req, res){
-    console.log(req.user);
-          res.render("getinvolved",{pageTitle: "getinvolved"});
+    res.render("getinvolved",{pageTitle: "getinvolved"});
 });
 
 router.get("/infomaterial", function(req, res){
-    console.log(req.user);
-          res.render("infomaterial",{pageTitle: "infomaterial"});
+    res.render("infomaterial",{pageTitle: "infomaterial"});
 });
 
 router.get("/partner", function(req, res){
-    console.log(req.user);
-          res.render("partner",{pageTitle: "partner"});
+    res.render("partner",{pageTitle: "partner"});
 });
-
+// contact form
 router.get("/contact", function(req, res){
-    console.log(req.user);
-          res.render("contact",{pageTitle: "contact"});
+    res.render("contact",{pageTitle: "contact"});
+});
+//send mail
+router.post("/contact", function(req,res){
+    var newMailing = {firstname: req.body.name, lastname: req.body.surname, email: req.body.email, request: req.body.need, message: req.body.message};
+    console.log(newMailing);
+    
+    // Create a SMTP transporter object - to be replaced by real creds
+    // dummy - https://mailtrap.io/inboxes
+    var transporter = nodemailer.createTransport({
+        host: "smtp.mailtrap.io",
+        port: 2525,
+        auth: {
+          user: "83e0e9b6e56230",
+          pass: "6c2b02f2359752"
+        }
+      });
+
+    // Message object
+    let message = {
+        from: newMailing["firstname"] +' '+ newMailing["lastname"] + '<'+newMailing["email"]+'>',
+
+        // Comma separated list of recipients
+        to: 'Teresa Fritsch <mintegration@biodidaktik.uni-halle.de>',
+        // bcc: '',
+
+        // Subject of the message
+        subject: newMailing["request"],
+
+        // plaintext body
+        text: newMailing["message"],
+
+        // HTML body
+        // html:
+        //     '<p><b>Hello</b> to myself <img src="cid:note@example.com"/></p>' +
+        //     '<p>Here\'s a nyan cat for you as an embedded attachment:<br/><img src="cid:nyan@example.com"/></p>',
+    };
+    console.log(message)
+    
+
+    transporter.sendMail(message, function(error, info){
+            if (error) {
+                req.flash("error", "Da ist etwas schiefgelaufen, bitte probiere es später wieder.")
+                console.log('Email not sent: ' + error);
+                res.redirect("/contact");
+            } else {
+                req.flash("success", "Danke für Ihre Kontaktaufnahme, " + newMailing["firstname"] +' '+ newMailing["lastname"] + ", wir melden uns sobald wie möglich!")
+                console.log('Email sent: ' + info.response);
+                res.redirect("/welcome");
+            }
+    });
 });
 
 router.get("/impressum", function(req, res){
@@ -59,17 +101,14 @@ router.get("/impressum", function(req, res){
           res.render("impressum",{pageTitle: "impressum"});
 });
 
-
 //========================
 // AUTH Routes
 //========================
 
-
 //register form
 router.get("/register", function(req, res){
-    res.render("register")
+    res.render("register", {pageTitle: "register"})
 });
-
 
 // register logic
 router.post("/register", function(req,res){
@@ -89,7 +128,7 @@ router.post("/register", function(req,res){
 
 // show login form
 router.get("/login", function(req,res){
-    res.render("login");
+    res.render("login", {pageTitle: "login"});
 });
 
 // login logic with the "authenticate" middleware
@@ -98,12 +137,9 @@ router.post("/login", passport.authenticate("local",
             successRedirect: "/welcome",
             failureRedirect: "/login"
         }), function(req,res){
-
 });
 
-
 // logout route
-
 router.get("/logout", function(req, res){
     // comes with passport
     req.flash("success", "Tschau!")

@@ -318,3 +318,11 @@ color: rgb(169, 209, 142);
 .overviewpage h4 {
   padding-top: 1rem;
 }
+
+#crop img {
+  width: 324px;
+  height: 324px;
+  overflow: hidden;
+}
+
+
