@@ -6,7 +6,7 @@ body {
     z-index: 0;
     position: relative;
     text-align: center;
-    padding-top: 85vh;
+    padding-top: 82vh;
   }
 
 #landing-header h1 {
@@ -20,7 +20,8 @@ body {
   font-weight: bold;
   font-size: 1.5rem;
   background: rgb(132, 191, 64);
-  padding: 13px;
+  padding-top: 2px;
+  padding-bottom: 2px;
   border-radius: 5px;
   display: inline-block;
   border: none;
@@ -59,14 +60,14 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    background-size: 26em;
+    background-size: 14em;
     background-position: 50% 50%;
     background-repeat: no-repeat;
     opacity: 0;
     z-index: 0;
     animation: imageAnimation 40s linear infinite; 
   }
-
+ 
 .slideshow li:nth-child(1) { 
     background-image: url("../images/logo.png");
 }
