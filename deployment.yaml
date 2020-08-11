@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: "mintegration-deployment"
+spec:
+  # anpassen auf mehrere instanzen wenn gewünscht
+  replicas: 5
+  selector: 
+    matchLabels:
+      app: "mintegration-selector"
+  template:
+    metadata:
+      labels:
+        app: "mintegration-selector"
+    spec:
+      containers:
+      - name: mintegration
+        image: maxisses/mintegrationwebapp
+        ports:
+            - containerPort: 3000
+        ## pod neustarten sobald livenessprobe failed
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 3000
+          initialDelaySeconds: 60
+          periodSeconds: 60
+        ## pod in Ruhe lassen bis readinessprobe wieder erfolgreich ist
+        # readinessProbe:
+        # exec:
+        #     command:
+        #       - npm run test
+        # initialDelaySeconds: 45
+        # periodSeconds: 10
+        resources:
+            limits:
+              memory: "256Mi"
+              cpu: "1000m"
+            requests:
+              memory: "128Mi"
+              cpu: "250m"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: "mintegration-service"
+spec:
+  type: NodePort
+  ports:
+    - name: http
+      port: 3000
+  selector:
+    app: "mintegration-selector"

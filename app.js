@@ -13,7 +13,17 @@ let express     = require("express"),
 let indexRoutes = require("./routes/index"),
     halberstadtRoutes = require("./routes/halberstadt");
 
-    //local DB
+//mongo db
+const options = {
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    autoIndex: true,
+    reconnectTries: Number.MAX_VALUE, // Never stop trying to reconnect
+    reconnectInterval: 500, // Reconnect every 500ms
+    bufferMaxEntries: 0,
+    connectTimeoutMS: 10000, // Give up initial connection after 10 seconds
+    socketTimeoutMS: 45000, // Close sockets after 45 seconds of inactivity
+}
 
 if (process.env.MONGOURL) {
     mongoose.connect("mongodb+srv://maxisses:"+process.env.MONGOPW+"@cluster0-tuynq.mongodb.net/test?retryWrites=true&w=majority").then(() => {
@@ -21,14 +31,14 @@ if (process.env.MONGOURL) {
     }).catch(err => {
         console.log('--- error connecting to the remote database ---');
         // process.exit()
-    });;;
+    });
     }else{
-    mongoose.connect("mongodb://maxisses:051213@my-mongo-container:27017/submissions").then(() => {
+    mongoose.connect("mongodb://maxisses:051213@mongodb:27017/submissions", options).then(() => {
         console.log('successfully connected to the local database');
     }).catch(err => {
         console.log('--- error connecting to container database; are you running with docker compose? ---');
         // process.exit()
-    });;
+    });
     }
 
 app.use(flash());

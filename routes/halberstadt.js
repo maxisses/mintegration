@@ -22,7 +22,7 @@ router.get("/vegetation", function(req, res){
 
 router.get("/hygiene", function(req, res){
     console.log(req.user);
-          res.render("hygiene",{pageTitle: "forschools", box1: "box1.ejs"});
+          res.render("hygiene",{pageTitle: "forschools"});
 });
 
 

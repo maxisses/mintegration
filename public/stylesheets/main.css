@@ -1,9 +1,6 @@
 body {
-    font-family: 'Arial';
-    font-weight: bold;
-    font-style: normal;
     background-color: rgb(241, 245, 237);
-  }
+    font-family: 'Oswald', sans-serif;
 }
 
 .resize_fit_center {
@@ -131,7 +128,6 @@ body {
 
 .active { 
   color: rgb(43, 44, 43) !important;
-  font-family: 'Arial';
   font-weight: bold;
   font-style: normal;
 
@@ -177,7 +173,6 @@ body {
 
 .dropdown-item {
   color: rgb(43, 44, 43) !important;
-  font-family: 'Arial';
   font-weight: bold;
   font-style: normal;
 }
@@ -204,7 +199,6 @@ body {
 
 .list-group-item {
   color: rgb(43, 44, 43) !important;
-  font-family: 'Arial';
   font-weight: bold;
   font-style: normal;
   Onclick="this.style.background='#003366'";
@@ -319,10 +313,20 @@ color: rgb(169, 209, 142);
   padding-top: 1rem;
 }
 
-#crop img {
-  width: 324px;
-  height: 324px;
-  overflow: hidden;
+.socialmediabutton {
+  background-color: transparent;
+  border: none;
 }
 
+.centerit {
+  margin-left: auto;
+  margin-right: auto;
+}
 
+.special-card {
+  padding: 3vh;
+}
+
+.teamimgpadding {
+  padding: 6vh;
+}

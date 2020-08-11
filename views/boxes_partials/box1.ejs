@@ -78,23 +78,4 @@
         
         </div>
     </div>
-    </div>
-    <script type=text/javascript>
-        async function transfunc(id) {
-            console.log(id)
-            var countryCode = id.innerText.slice(-2)
-            var currentLang = id.innerText.slice(0, -5)
-            document.getElementById("currentlang").innerHTML = currentLang
-            var words = document.getElementsByClassName("wordtotrans")
-            console.log(words)
-            console.log(document.getElementsByClassName("wordistrans")[0])
-            const current_word = await translate('Wörter', {from: 'de', to: countryCode, engine: 'google', key: 'AIzaSyCbDaZjxmSrQ4bPqr_RBLx5MmnUnLKKdEs'});
-            console.log(current_word);
-            document.getElementById("vocabtrans").innerHTML = current_word;
-            for (i=0; i < words.length; i++) {
-                const current_word = await translate(words[i].innerHTML, {from: 'de', to: countryCode, engine: 'google', key: 'AIzaSyCbDaZjxmSrQ4bPqr_RBLx5MmnUnLKKdEs'});
-                console.log(current_word);
-                document.getElementsByClassName("wordistrans")[i].innerHTML = current_word;
-            }
-          }  
-    </script>
+</div>

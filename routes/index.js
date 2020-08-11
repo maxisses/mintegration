@@ -4,6 +4,7 @@ var User = require("../models/user");
 var passport = require("passport");
 var middleware = require("../middleware");
 var nodemailer = require('nodemailer');
+var mongoose    = require("mongoose");
 
 // Main Route
 router.get("/", function(req, res){
@@ -108,6 +109,13 @@ router.get("/impressum", function(req, res){
 //register form
 router.get("/register", function(req, res){
     res.render("register", {pageTitle: "register"})
+    mongoose.connect("mongodb://maxisses:051213@mongodb:27017/submissions").then(() => {
+        console.log('successfully connected to the local database');
+    }).catch(err => {
+        console.log('--- error connecting to container database; are you running with docker compose? ---');
+        // process.exit()
+    });
+
 });
 
 // register logic
