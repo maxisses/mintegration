@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: mintegration-ingress
+spec:
+  # tls:
+  # - hosts:
+  #   -  mintegration-halle.de
+  #   secretName: mycluster-fra02-u-933117-39df0ed7a3c2ec1b2ad7d1247807cc2f-0000
+  rules:
+  - host: www.mintegration-halle.de
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: mintegration-service
+          servicePort: 80

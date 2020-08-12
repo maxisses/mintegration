@@ -1,17 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: "mintegration-deployment"
+  name: mintegration-deployment
+  namespace: mintegration
 spec:
   # anpassen auf mehrere instanzen wenn gewünscht
-  replicas: 5
+  replicas: 1
   selector: 
     matchLabels:
-      app: "mintegration-selector"
+      app: mintegration-selector
   template:
     metadata:
       labels:
-        app: "mintegration-selector"
+        app: mintegration-selector
     spec:
       containers:
       - name: mintegration
@@ -34,20 +35,41 @@ spec:
         # periodSeconds: 10
         resources:
             limits:
-              memory: "256Mi"
-              cpu: "1000m"
+              memory: 256Mi
+              cpu: 1000m
             requests:
-              memory: "128Mi"
-              cpu: "250m"
+              memory: 128Mi
+              cpu: 250m
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: "mintegration-service"
+  name: mintegration-service
+  namespace: mintegration
 spec:
   type: NodePort
   ports:
     - name: http
-      port: 3000
+      port: 80
+      targetPort: 3000
   selector:
-    app: "mintegration-selector"
+    app: mintegration-selector
+---
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: mintegration-ingress
+  namespace: mintegration
+spec:
+  tls:
+  - hosts:
+    -  mintegrationhalle.de
+    secretName: mycluster-fra02-u-933117-39df0ed7a3c2ec1b2ad7d1247807cc2f-0000
+  rules:
+  - host: mintegrationhalle.de
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: mintegration-service
+          servicePort: 80
