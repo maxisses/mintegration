@@ -20,12 +20,12 @@ spec:
         ports:
             - containerPort: 3000
         ## pod neustarten sobald livenessprobe failed
-        livenessProbe:
-          httpGet:
-            path: /health
-            port: 3000
-          initialDelaySeconds: 60
-          periodSeconds: 60
+        # livenessProbe:
+        #   httpGet:
+        #     path: /health
+        #     port: 3000
+        #   initialDelaySeconds: 60
+        #   periodSeconds: 60
         ## pod in Ruhe lassen bis readinessprobe wieder erfolgreich ist
         # readinessProbe:
         # exec:
@@ -33,13 +33,13 @@ spec:
         #       - npm run test
         # initialDelaySeconds: 45
         # periodSeconds: 10
-        resources:
-            limits:
-              memory: 256Mi
-              cpu: 1000m
-            requests:
-              memory: 128Mi
-              cpu: 250m
+        # resources:
+        #     limits:
+        #       memory: 256Mi
+        #       cpu: 1000m
+        #     requests:
+        #       memory: 128Mi
+        #       cpu: 250m
 ---
 apiVersion: v1
 kind: Service
@@ -60,11 +60,13 @@ kind: Ingress
 metadata:
   name: mintegration-ingress
   namespace: mintegration
+  annotations:
+   ingress.bluemix.net/redirect-to-https: "True"
 spec:
   tls:
   - hosts:
     -  mintegrationhalle.de
-    secretName: mycluster-fra02-u-933117-39df0ed7a3c2ec1b2ad7d1247807cc2f-0000
+    secretName: mintegrationtlssecret
   rules:
   - host: mintegrationhalle.de
     http:

@@ -1,0 +1,15 @@
+docker run -it --rm --name letsencrypt \
+                    -v "$PWD/letsencrypt/etc:/etc/letsencrypt" \
+                    -v "$PWD/letsencrypt/var:/var/lib/letsencrypt" \
+                    certbot/certbot:latest \
+                        certonly \
+                        -d mintegrationhalle.de \
+                        --manual \
+                        --preferred-challenges dns \
+                        --server https://acme-v02.api.letsencrypt.org/directory
+
+base64 -w 0 cert/letsencrypt/etc/live/mintegrationhalle.de/cert.pem > cert/letsencrypt/etc/live/mintegrationhalle.de/certenc.pem
+
+base64 -w 0 cert/letsencrypt/etc/live/mintegrationhalle.de/privkey.pem > cert/letsencrypt/etc/live/mintegrationhalle.de/keyenc.pem
+
+cp into ibmsecret.yaml
