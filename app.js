@@ -11,7 +11,7 @@ let express     = require("express"),
 
 // using express router to split up code, requiring routes
 let indexRoutes = require("./routes/index"),
-    halberstadtRoutes = require("./routes/halberstadt");
+    lernboxenRoutes = require("./routes/lernboxen");
 
 //mongo db
 const options = {
@@ -78,7 +78,7 @@ app.use(function(req, res, next){
 // using express router to split up code
 app.use(indexRoutes);
 
-app.use("/halberstadt", halberstadtRoutes);
+app.use("/lernboxen", lernboxenRoutes);
 
 
 

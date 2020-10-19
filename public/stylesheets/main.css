@@ -1,6 +1,6 @@
 body {
     background-color: rgb(241, 245, 237);
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Arial', sans-serif;
 }
 
 .resize_fit_center {
@@ -45,11 +45,11 @@ body {
   /* Change background on mouse-over */
   .navpane a:hover {
     background: #ddd;
-    color: black;
+    color: rgb(216, 38, 125);
   }
 
   .list-group-item .list-group-item-action .active {
-    background-color: rgb(216, 38, 125);
+    background-color: black;
   }
 
   .iframe {
@@ -67,6 +67,22 @@ body {
     margin-bottom: 1rem;
     background: rgb(169, 209, 142);
     left: 50%;
+    margin-left: -40px;
+    bottom: 0;
+  }
+
+/* made invisible because not correctly responsive */
+  .hl-afterboxes::after {
+    content: "";
+    position: relative;
+    display: block;
+    width: 80px;
+    height: 2px;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    background: rgb(169, 209, 142);
+    opacity: 0;
+    left: 16%;
     margin-left: -40px;
     bottom: 0;
   }
@@ -114,16 +130,16 @@ body {
 
 /* change the color of active or hovered links */
 .navbar-custom .nav-item:hover .nav-link {
-    color: #575555;
+    color: rgb(216, 38, 125);
 }
 /* funkt noch nich ?!?! */
 .navbar-custom .nav-item.active{
-    color: #575555;
+    color: rgb(216, 38, 125);
 }
 
 /* funkt noch nich ?!?! */
 .navbar-custom .nav-item .nav-link {
-  color: rgb(216, 38, 125);
+  color: black;
 }
 
 .active { 
@@ -330,3 +346,73 @@ color: rgb(169, 209, 142);
 .teamimgpadding {
   padding: 6vh;
 }
+
+.tilesWrap {
+	padding: 0;
+	margin: 50px auto;
+	list-style: none;
+	text-align: center;
+}
+.tilesWrap li {
+	display: inline-block;
+	width: 20%;
+	min-width: 200px;
+	max-width: 230px;
+	padding: 80px 20px 40px;
+	position: relative;
+	vertical-align: top;
+	margin: 10px;
+	font-family: 'helvetica', san-serif;
+	height: 28vh;
+	background:   rgb(169, 209, 142);
+	border: 1px solid rgb(169, 209, 142);
+	text-align: left;
+}
+.tilesWrap li h2 {
+	font-size: 60px;
+	margin: 0;
+	position: absolute;
+	opacity: 0.2;
+	top: 10px;
+	right: 10px;
+	transition: all 0.3s ease-in-out;
+}
+.tilesWrap li h3 {
+	font-size: 20px;
+	color: #b7b7b7;
+	margin-bottom: 5px;
+}
+.tilesWrap li p {
+	font-size: 16px;
+	line-height: 18px;
+	color: black;
+	margin-top: 5px;
+}
+.tilesWrap li:hover h2 {
+	top: 0px;
+	opacity: 0.6;
+}
+
+.tilesWrap li:before {
+	content: '';
+	position: absolute;
+	top: -2px;
+	left: -2px;
+	right: -2px;
+	bottom: -2px;
+	z-index: -1;
+	background: #fff;
+	transform: skew(2deg, 2deg);
+}
+.tilesWrap li:after {
+	content: '';
+	position: absolute;
+	width: 40%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	background: rgba(255, 255, 255, 0.02);
+}
+
+
+
