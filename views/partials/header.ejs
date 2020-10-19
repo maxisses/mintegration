@@ -19,6 +19,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500&display=swap" rel="stylesheet"> 
   <script src="https://cdn.jsdelivr.net/npm/translate@1/translate.min.js"></script>
   <script src="https://kit.fontawesome.com/ef23fed41f.js" crossorigin="anonymous"></script>
+  
 
 </head>
 <body>
@@ -55,29 +56,31 @@
                         </li>
                         <li class="nav-item">
                           <li class="nav-item dropdown">
-                            <a class="<%= pageTitle == 'forschools' ? 'nav-link active' : 'nav-link' %> dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              Für Lehrkräfte und Schulen
+                            <a class="<%= pageTitle == 'lernboxen' ? 'nav-link active' : 'nav-link' %> dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              Lernen und Lehren
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                               
-                              <a class="dropdown-item" href="/information">Informationen</a>
-                              
-                              <a class="dropdown-item" href="/halberstadt">ZASt Halberstadt</a> 
+                              <a class="dropdown-item" href="/lernboxen">Lernboxen</a> 
                               <div class="dropdown-divider"></div>
-                              <a class="dropdown-item" href="/halberstadt/sport">Sport, Ernährung & Gesundheit</a>
-                              <a class="dropdown-item" href="/halberstadt/vegetation">Vegetation</a> 
-                              <a class="dropdown-item" href="/halberstadt/hygiene">Hygiene, Bakterien & Viren</a>
+                              <a class="dropdown-item" href="/lernboxen/hygiene">Bakterien & Viren</a>
+                              <a class="dropdown-item" href="/lernboxen/sport">Sport & Gesundheit</a>
+                              <a class="dropdown-item" href="/lernboxen/vegetation">Pflanzen & Ernährung</a> 
+                              
                               
                                  
                             </div>
                           </li>
                         </li>
                         <li class="nav-item">
-                          <a class="<%= pageTitle == 'getinvolved' ? 'nav-link active' : 'nav-link' %>" href="/getinvolved">Engagieren</a>
+                          <a class="<%= pageTitle == 'forschools' ? 'nav-link active' : 'nav-link' %>" href="/information">Informationen</a>
                         </li>
                         <li class="nav-item">
-                          <a class="<%= pageTitle == 'infomaterial' ? 'nav-link active' : 'nav-link' %>" href="/infomaterial">Infomaterial</a>
+                          <a class="<%= pageTitle == 'getinvolved' ? 'nav-link active' : 'nav-link' %>" href="/getinvolved">Engagieren</a>
                         </li>
+                        <!-- <li class="nav-item">
+                          <a class="<%= pageTitle == 'infomaterial' ? 'nav-link active' : 'nav-link' %>" href="/infomaterial">Infomaterial</a>
+                        </li> -->
                         <li class="nav-item">
                           <a class="<%= pageTitle == 'partner' ? 'nav-link active' : 'nav-link' %>" href="/partner">Partner</a>
                         </li>

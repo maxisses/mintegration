@@ -1,5 +1,5 @@
 body {
-    background-color: #000;
+    background-color: rgb(255, 255, 255);
     font-family: 'Oswald', sans-serif;
 
   }
@@ -29,7 +29,7 @@ body {
   border: none;
   transition: all 0.4s ease 0s;
   width: 12rem;
-  opacity: 0.5;
+  opacity: 1;
   }
 
 .landing-btn:hover {
@@ -73,58 +73,7 @@ body {
 .slideshow li:nth-child(1) { 
   background-image: url("../images/logo.png");
 }
-.slideshow li:nth-child(2) { 
-  background-image: url("../images/_MG_0204.png");
-  animation-delay: 5s; 
-}
-.slideshow li:nth-child(3) { 
-  background-image: url("../images/2019-03-06\ 11.21.28.jpg");
-  animation-delay: 10s; 
-}
-.slideshow li:nth-child(4) { 
-  background-image: url("../images/2019-03-06\ 12.48.28.jpg");
-  animation-delay: 15s; 
-}
-.slideshow li:nth-child(5) { 
-  background-image: url("../images/IMG_0535.jpg");
-  animation-delay: 20s; 
-}
-.slideshow li:nth-child(6) { 
-  background-image: url("../images/IMG_20181019_143052.jpg");
-  animation-delay: 25s; 
-}
-.slideshow li:nth-child(7) { 
-  background-image: url("../images/IMG_20190915_105739.jpg");
-  animation-delay: 30s; 
-}
-.slideshow li:nth-child(8) { 
-  background-image: url("../images/Lehrerfortbildung.jpg");
-  animation-delay: 35s; 
-}
-.slideshow li:nth-child(9) { 
-  background-image: url("../images/Medienarbeit\ mit\ Flüchtlingen.jpg");
-  animation-delay: 40s; 
-}
-.slideshow li:nth-child(10) { 
-  background-image: url("../images/Produkte\ Upcycling.jpeg");
-  animation-delay: 45s; 
-}
-.slideshow li:nth-child(11) { 
-  background-image: url("../images/Projektwoche\ Nachhaltigkeit.jpeg");
-  animation-delay: 50s; 
-}
-.slideshow li:nth-child(12) { 
-  background-image: url("../images/Seite\ Projekt.jpg");
-  animation-delay: 55s; 
-}
-.slideshow li:nth-child(13) { 
-  background-image: url("../images/Titelseite.jpg");
-  animation-delay: 60s; 
-}
-.slideshow li:nth-child(14) { 
-  background-image: url("../images/tolle\ Experimente.jpg");
-  animation-delay: 65s; 
-}
+
 
 
 @keyframes imageAnimation { 
@@ -135,12 +84,6 @@ body {
   4% {
     opacity: 1;
     animation-timing-function: ease-out;
-  }
-  5% {
-    opacity: 1
-  }
-  6% {
-    opacity: 0
   }
 }
 
