@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: mintegration
-        image: maxisses/mintegrationwebapp
+        image: maxisses/mintegration
         ports:
             - containerPort: 3000
         ## pod neustarten sobald livenessprobe failed
