@@ -3,7 +3,7 @@ docker run -it --rm --name letsencrypt \
                     -v "$PWD/letsencrypt/var:/var/lib/letsencrypt" \
                     certbot/certbot:latest \
                         certonly \
-                        -d mintegrationhalle.de \
+                        -d mintegration-halle.de \
                         --manual \
                         --preferred-challenges dns \
                         --server https://acme-v02.api.letsencrypt.org/directory

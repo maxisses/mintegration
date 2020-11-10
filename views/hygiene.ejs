@@ -134,11 +134,11 @@
             var words = document.getElementsByClassName("wordtotrans")
             console.log(words)
             console.log(document.getElementsByClassName("wordistrans")[0])
-            const current_word = await translate('Wörter', {from: 'de', to: countryCode, engine: 'google', key: 'AIzaSyCbDaZjxmSrQ4bPqr_RBLx5MmnUnLKKdEs'});
+            const current_word = await translate('Wörter', {from: 'de', to: countryCode, engine: 'google', key: 'AIzaSyAYtcXRk5TH586dLf3nrOOdAZ5VhNHvH3w'});
             console.log(current_word);
             document.getElementById("vocabtrans").innerHTML = current_word;
             for (i=0; i < words.length; i++) {
-                const current_word = await translate(words[i].innerHTML, {from: 'de', to: countryCode, engine: 'google', key: 'AIzaSyCbDaZjxmSrQ4bPqr_RBLx5MmnUnLKKdEs'});
+                const current_word = await translate(words[i].innerHTML, {from: 'de', to: countryCode, engine: 'google', key: 'AIzaSyAYtcXRk5TH586dLf3nrOOdAZ5VhNHvH3w'});
                 console.log(current_word);
                 document.getElementsByClassName("wordistrans")[i].innerHTML = current_word;
             }

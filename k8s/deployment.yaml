@@ -17,6 +17,7 @@ spec:
       containers:
       - name: mintegration
         image: maxisses/mintegration
+        imagePullPolicy: Always
         ports:
             - containerPort: 3000
         ## pod neustarten sobald livenessprobe failed

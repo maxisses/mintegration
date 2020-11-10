@@ -127,7 +127,7 @@ spec:
       containers:
       - name: %s
         image: %s
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always
         ports:
         - containerPort: %s
 ---
