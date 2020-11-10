@@ -106,7 +106,7 @@ echo -e "Namespace ${CLUSTER_NAMESPACE} authorizing with private image registry 
 
 echo "=========================================================="
 echo "CHECKING DEPLOYMENT.YML manifest"
-if [ -z "${DEPLOYMENT_FILE}" ]; then DEPLOYMENT_FILE=deployment.yml ; fi
+if [ -z "${DEPLOYMENT_FILE}" ]; then DEPLOYMENT_FILE=deployment.yaml ; fi
 if [ ! -f ${DEPLOYMENT_FILE} ]; then
   echo "No ${DEPLOYMENT_FILE} found. Initializing it."
   deployment_content=$(cat <<'EOT'
@@ -150,11 +150,13 @@ metadata:
   name: %s
   annotations:
    ingress.bluemix.net/redirect-to-https: "True"
+   cert-manager.io/cluster-issuer: letsencrypt-prod
+spec:
 spec:
   tls:
   - hosts:
-    -  mintegrationhalle.de
-    secretName: mintegrationtlssecret
+    -  mintegration-halle.de
+    secretName: letsencrypt-prod
   rules:
   - host: mintegrationhalle.de
     http:
