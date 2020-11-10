@@ -17,6 +17,7 @@ spec:
       containers:
       - name: mintegration
         image: maxisses/mintegration
+        imagePullPolicy: Always
         ports:
             - containerPort: 3000
         ## pod neustarten sobald livenessprobe failed
@@ -62,13 +63,14 @@ metadata:
   namespace: mintegration
   annotations:
    ingress.bluemix.net/redirect-to-https: "True"
+   cert-manager.io/cluster-issuer: letsencrypt-prod
 spec:
   tls:
   - hosts:
-    -  mintegrationhalle.de
-    secretName: mintegrationtlssecret
+    -  mintegration-halle.de
+    secretName: letsencrypt-prod
   rules:
-  - host: mintegrationhalle.de
+  - host: mintegration-halle.de
     http:
       paths:
       - path: /

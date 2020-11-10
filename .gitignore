@@ -4,3 +4,4 @@ node_modules
 mongo-volume
 translateapi.json
 mongo-init.js
+cert
