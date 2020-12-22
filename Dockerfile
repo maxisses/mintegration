@@ -1,10 +1,4 @@
-FROM registry.access.redhat.com/ubi8/ubi:8.2
-
-## to make ci pipe fails specific
-RUN set -eo pipefail
-
-RUN curl -sL https://rpm.nodesource.com/setup_12.x | bash -
-RUN yum install -y nodejs
+FROM node:15.4-slim
 
 RUN mkdir /app
 WORKDIR /app

@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.application.name }}
+  namespace: {{ .Values.application.namespace }}
+spec:
+  # anpassen auf mehrere instanzen wenn gewünscht
+  replicas: 1
+  selector: 
+    matchLabels:
+      app: {{ .Values.service.selector }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.service.selector }}
+    spec:
+      containers:
+      - name: {{ .Values.application.name }}
+        image: {{ .Values.image.repository }}
+        imagePullPolicy: {{ .Values.image.imagePullPolicy }}
+        ports:
+            - containerPort: {{ .Values.image.containerPort}}
