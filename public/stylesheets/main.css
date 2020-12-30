@@ -217,7 +217,6 @@ body {
   color: rgb(43, 44, 43) !important;
   font-weight: bold;
   font-style: normal;
-  Onclick="this.style.background='#003366'";
 }
 
 .list-group-item:hover {
@@ -413,6 +412,26 @@ color: rgb(169, 209, 142);
 	top: 0;
 	background: rgba(255, 255, 255, 0.02);
 }
+
+.nav-item-pills a {
+  color: rgb(43, 44, 43) !important;
+  font-weight: bold;
+  font-style: normal;
+}
+
+.nav-item-pills a.active {
+  background-color: rgb(216, 38, 125) !important;
+  font-weight: bold;
+  font-style: normal;
+}
+
+.nav-item-pills:hover {
+  color: #fff;
+  border-radius: 4px;
+  background-color: rgb(216, 38, 125);
+  border-color: #fff;
+}
+
 
 
 
