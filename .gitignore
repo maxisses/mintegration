@@ -5,3 +5,4 @@ mongo-volume
 translateapi.json
 mongo-init.js
 cert
+helm-chart/templates/secret.yaml

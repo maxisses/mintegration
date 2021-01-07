@@ -7,7 +7,7 @@
                     <a id="goback" style="display: none; color: #575555;" href="/lernboxen/vegetation" class="font-weight-bold">zurück</a>
                     <h1 class="hl-afterboxes">Pflanzen & Ernährung </h1>
                         <div class="row text-center" style="display: flex; flex-wrap: wrap"> 
-                            <div class="col-md-6 col-sm-12" id="myboxparent1" style="display:flex; flex-wrap: wrap">
+                            <div class="col-md-4 col-sm-12" id="myboxparent1" style="display:flex; flex-wrap: wrap">
                                 <div class="img-thumbnail" style="background-color: transparent; ">
                                     <a href="#"><h5 onclick="myFunction(this)" id="mybox1" class="top_padded font-weight-bold" style="color: #575555;">Lernbox 1</h5></a>
                                     <img class="img-fluid" alt="Responsive image" src ="https://images.unsplash.com/photo-1573376670774-4427757f7963?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80">
@@ -15,10 +15,18 @@
                                 </div>
                             </div>
                             
-                            <div class="col-md-6 col-sm-12" id="myboxparent2" style="display:flex; flex-wrap: wrap">
+                            <div class="col-md-4 col-sm-12" id="myboxparent2" style="display:flex; flex-wrap: wrap">
                                 <div class="img-thumbnail" style="background-color: transparent; ">
                                     <a href="#"><h5 onclick="myFunction(this)" id="mybox2" class="top_padded font-weight-bold" style="color: #575555;">Lernbox 2</h5></a>
                                     <img class="img-fluid" alt="Responsive image" src ="https://images.unsplash.com/photo-1577702312706-e23ff063064f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80">
+                                    
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-12" id="myboxparent3" style="display:flex; flex-wrap: wrap">
+                                <div class="img-thumbnail" style="background-color: transparent; ">
+                                    <a href="#"><h5 onclick="myFunction(this)" id="mybox3" class="top_padded font-weight-bold" style="color: #575555;">Lernbox 3</h5></a>
+                                    <img class="img-fluid" alt="Responsive image" src ="https://images.unsplash.com/photo-1575833947349-69324d765146?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80">
                                     
                                 </div>
                             </div>
@@ -33,6 +41,7 @@
         <span id="displaybox"></span>
         <% include boxes_partials_vegetation/box1.ejs %>
         <% include boxes_partials_vegetation/box2.ejs %>
+        <% include boxes_partials_vegetation/box3.ejs %>
 
     </div>
 
@@ -44,8 +53,10 @@
           if (id.id === "mybox1") {
             // handle the box display content field
             var parent1 = document.getElementById("myboxparent2");
+            var parent2 = document.getElementById("myboxparent3");
             
             parent1.style.display = "none";
+            parent2.style.display = "none";
             
 
             var navigator = document.getElementById("navigator");
@@ -56,6 +67,9 @@
 
             // handle the box image atop
             var element = document.getElementById("box2");
+            element.style.display = "none";
+
+            var element = document.getElementById("box3");
             element.style.display = "none";
 
             var element = document.getElementById("box1");
@@ -67,8 +81,10 @@
           }  else if (id.id === "mybox2") {
             // handle the box display content field
             var parent1 = document.getElementById("myboxparent1");
+            var parent2 = document.getElementById("myboxparent3");
             
             parent1.style.display = "none";
+            parent2.style.display = "none";
             
 
             var navigator = document.getElementById("navigator");
@@ -82,29 +98,37 @@
             var element = document.getElementById("box1");
             element.style.display = "none";
 
+            var element = document.getElementById("box3");
+            element.style.display = "none";
+
             var element = document.getElementById("box2");
             element.style.display = "flex";
             console.log(element)
-          }
-        }
+          } else {
+            // handle the box display content field
+            var parent1 = document.getElementById("myboxparent2");
+            var parent2 = document.getElementById("myboxparent1");
+            parent1.style.display = "none";
+            parent2.style.display = "none";
 
-        async function transfunc(id) {
-            console.log(id)
-            var countryCode = id.innerText.slice(-2)
-            var currentLang = id.innerText.slice(0, -5)
-            document.getElementById("currentlang").innerHTML = currentLang
-            var words = document.getElementsByClassName("wordtotrans")
-            console.log(words)
-            console.log(document.getElementsByClassName("wordistrans")[0])
-            const current_word = await translate('Wörter', {from: 'de', to: countryCode, engine: 'google', key: 'AIzaSyAYtcXRk5TH586dLf3nrOOdAZ5VhNHvH3w'});
-            console.log(current_word);
-            document.getElementById("vocabtrans").innerHTML = current_word;
-            for (i=0; i < words.length; i++) {
-                const current_word = await translate(words[i].innerHTML, {from: 'de', to: countryCode, engine: 'google', key: 'AIzaSyAYtcXRk5TH586dLf3nrOOdAZ5VhNHvH3w'});
-                console.log(current_word);
-                document.getElementsByClassName("wordistrans")[i].innerHTML = current_word;
-            }
+            var navigator = document.getElementById("navigator");
+            navigator.style.display = "none";
+
+            var goback = document.getElementById("goback");
+            goback.style.display = "flex";
+
+            // handle the box image atop
+
+            var element = document.getElementById("box1");
+            element.style.display = "none";
+
+            var element = document.getElementById("box2");
+            element.style.display = "none";
+
+            var element = document.getElementById("box3");
+            element.style.display = "flex";
           }  
+        } 
     </script>
 
 <% include partials/footer.ejs %>

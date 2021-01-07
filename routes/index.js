@@ -5,6 +5,7 @@ var passport = require("passport");
 var middleware = require("../middleware");
 var nodemailer = require('nodemailer');
 var mongoose    = require("mongoose");
+var INSTAPIXLEE_API_KEY = process.env.INSTAPIXLEE_API_KEY
 
 // Main Route
 router.get("/", function(req, res){
@@ -12,7 +13,7 @@ router.get("/", function(req, res){
 });
 
 router.get("/welcome", function(req, res){
-    res.render("welcome",{pageTitle: "welcome"});
+    res.render("welcome",{pageTitle: "welcome", INSTAPIXLEE_API_KEY: INSTAPIXLEE_API_KEY});
 });
 
 router.get("/projectoverview", function(req, res){
@@ -53,33 +54,38 @@ router.post("/contact", function(req,res){
     
     // Create a SMTP transporter object - to be replaced by real creds
     // dummy - https://mailtrap.io/inboxes
-    var transporter = nodemailer.createTransport({
+    /* var transporter = nodemailer.createTransport({
         host: "smtp.mailtrap.io",
         port: 2525,
         auth: {
           user: "83e0e9b6e56230",
           pass: "6c2b02f2359752"
         }
-      });
+      }); */
+      var transporter = nodemailer.createTransport({
+        service: "Hotmail",
+        auth: {
+            user: "mintegration-website@hotmail.com",
+            pass: process.env.MAILPASSWORD
+        }
+    }); 
+
+    var message_content = "Name: " + newMailing["lastname"] + "\n" + "Vorname: " + newMailing["firstname"] + "\n" + "eMail: " + newMailing["email"] + "\n\n" + "Nachricht: " + "\n" + newMailing["message"]
 
     // Message object
     let message = {
-        from: newMailing["firstname"] +' '+ newMailing["lastname"] + '<'+newMailing["email"]+'>',
+        from: 'mintegration-website@hotmail.com', // sender address
+        // from: newMailing["firstname"] +' '+ newMailing["lastname"] + '<'+newMailing["email"]+'>',
 
-        // Comma separated list of recipients
-        to: 'Teresa Fritsch <mintegration@biodidaktik.uni-halle.de>',
-        // bcc: '',
+        // // Comma separated list of recipients
+        to: 'mintegration@biodidaktik.uni-halle.de',
+        cc: 'mintegration-website@hotmail.com',
 
         // Subject of the message
         subject: newMailing["request"],
 
         // plaintext body
-        text: newMailing["message"],
-
-        // HTML body
-        // html:
-        //     '<p><b>Hello</b> to myself <img src="cid:note@example.com"/></p>' +
-        //     '<p>Here\'s a nyan cat for you as an embedded attachment:<br/><img src="cid:nyan@example.com"/></p>',
+        text: message_content,
     };
     console.log(message)
     
