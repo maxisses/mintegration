@@ -1,16 +1,15 @@
-FROM node:15.4-slim
+FROM registry.access.redhat.com/ubi7/nodejs-12
 
-RUN mkdir /app
-WORKDIR /app
+WORKDIR /opt/app-root/src
 
-COPY package.json /app
+COPY package.json /opt/app-root/src
 RUN npm install --only=prod
-COPY app.js /app/app.js
-COPY public /app/public
-COPY routes /app/routes
-COPY views /app/views
-COPY models /app/models
-COPY middleware /app/middleware
+COPY app.js /opt/app-root/src/app.js
+COPY public /opt/app-root/src/public
+COPY routes /opt/app-root/src/routes
+COPY views /opt/app-root/src/views
+COPY models /opt/app-root/src/models
+COPY middleware /opt/app-root/src/middleware
 
 ENV NODE_ENV production
 ENV PORT 3000
