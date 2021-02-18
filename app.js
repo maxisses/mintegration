@@ -26,7 +26,7 @@ const options = {
 }
 
 if (process.env.MONGOURL) {
-    mongoose.connect("mongodb+srv://maxisses:"+process.env.MONGOPW+"@cluster0-tuynq.mongodb.net/test?retryWrites=true&w=majority").then(() => {
+    mongoose.connect("mongodb+srv://maxisses:"+process.env.MONGOPW+"@"+process.env.MONGOURL"/"process.env.MONGODB).then(() => {
         console.log('successfully connected to the local database');
     }).catch(err => {
         console.log('--- error connecting to the remote database ---');
