@@ -19,7 +19,7 @@
     "gapi": "0.0.3",
     "method-override": "^3.0.0",
     "mongoose": "^5.7.5",
-    "nodemailer": "^6.4.6",
+    "nodemailer": "^6.4.16",
     "nodemon": "^2.0.4",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
